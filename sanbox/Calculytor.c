@@ -4,23 +4,24 @@ int main() {
     printf("\n");
     float one, two;
     char deistvie;
-    printf("Введи первое число(пример 0.0): \n");
+    printf("Введи первое число(пример 0.0): ");
     scanf("%f", &one);
-    
-    printf("Введи действие(+, -, /, *): \n");
-    scanf("%c", &deistvie);
-    
-    printf("Введи второе число(пример 0.0): \n");
+        
+    printf("Введи второе число(пример 0.0):");
     scanf("%f", &two);
+    
+    printf("Введи действие(+, -, /, *): ");
+    scanf("%c", &deistvie);
 
-    if(deistvie == '+') {
+
+    if (deistvie == '+') {
         printf("%f + %f = ", one, two);
-    } else if(deistvie == '-') {
+    } else if (deistvie == '-') {
         printf("%f - %f", one, two);
     } else if(deistvie == '*') {
-        printf("%f * %f", one, two);
+        printf ("%f * %f", one, two);
     } else if(deistvie == '/') {
-        printf("%f / %f", one, two);
+        printf ("%f / %f", one, two);
     }
 
     return 0;
