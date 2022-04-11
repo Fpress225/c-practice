@@ -5,7 +5,7 @@ int main(void) {
     printf("Подели его на 2\n");
     printf("Введи полученное число:\n");
     int y, t, x;
-    scanf("%d", &x);
+    scanf("%s", &x);
     y = x * 2;
     t = y / 6;
     if(t != 0 ){
