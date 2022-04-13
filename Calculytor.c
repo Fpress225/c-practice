@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void info(void);
+void flush_input(void);
 
 int main() {
     printf("\n");
@@ -8,34 +8,41 @@ int main() {
     char deistvie;
     printf("Введи первое число(пример 0.0): ");
     scanf("%f", &one);
-    info();
+    flush_input();
 
     printf("Введи второе число(пример 0.0): ");
     scanf("%f", &two);
-    info();
+    flush_input();
 
     printf("Введи действие(+, -, /, *): ");
     scanf("%c", &deistvie);
 
     float vicheslenie;
-    if (deistvie == '+') {
-        vicheslenie = one + two;
-        printf("%f + %f = %f\n", one, two, vicheslenie);
-    } else if (deistvie == '-') {
-        vicheslenie = one - two;
-        printf("%f - %f = %f\n", one, two, vicheslenie);
-    } else if(deistvie == '*') {
-        vicheslenie = one * two;
-        printf ("%f * %f = %f\n", one, two, vicheslenie);
-    } else if(deistvie == '/') {
-        vicheslenie = one / two;
-        printf ("%f / %f = %f\n", one, two, vicheslenie);
+    switch(deistvie) {
+        case '+':
+            vicheslenie = one + two;
+            printf("%.3f + %.3f = %.3f\n", one, two, vicheslenie);
+            break;
+        case '-':
+            vicheslenie = one - two;
+            printf("%.3f - %.3f = %.3f\n", one, two, vicheslenie);
+            break;
+        case '*':
+            vicheslenie = one * two;
+            printf("%.3f * %.3f = %.3f\n", one, two, vicheslenie);
+            break;
+        case '/':
+            vicheslenie = one / two;
+            printf("%.3f / %.3f = %.3f\n", one, two, vicheslenie);
+            break;
+        defualt: 
+            printf("Ты что-то сделал не то)");
     }
 
     return 0;
 }
 
-void info() {
+void flush_input(void) {
     char c;
     while ((c = getc(stdin)) != '\n' && c != EOF);
 }
