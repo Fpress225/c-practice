@@ -17,27 +17,43 @@ int main() {
 
         printf("Введи действие(+, -, /, *): ");
         scanf("%c", &deistvie);
-
+        flush_input();
         float vicheslenie;
-        switch (deistvie) {
-            case '+':
-                vicheslenie = one + two;
-                printf("%.3f + %.3f = %.3f\n", one, two, vicheslenie);
-                break;
-            case '-':
-                vicheslenie = one - two;
-                printf("%.3f - %.3f = %.3f\n", one, two, vicheslenie);
-                break;
-            case '*':
-                vicheslenie = one * two;
-                printf("%.3f * %.3f = %.3f\n", one, two, vicheslenie);
-                break;
-            case '/':
-                vicheslenie = one / two;
-                printf("%.3f / %.3f = %.3f\n", one, two, vicheslenie);
-                break;
+        if (deistvie == '+' || deistvie == '-' || deistvie == '*' || deistvie == '/') {
+            switch (deistvie) {
+                case '+':
+                    vicheslenie = one + two;
+                    printf("%.3f + %.3f = %.3f\n", one, two, vicheslenie);
+                    break;
+                case '-':
+                    vicheslenie = one - two;
+                    printf("%.3f - %.3f = %.3f\n", one, two, vicheslenie);
+                    break;
+                case '*':
+                    vicheslenie = one * two;
+                    printf("%.3f * %.3f = %.3f\n", one, two, vicheslenie);
+                    break;
+                case '/':
+                    vicheslenie = one / two;
+                    printf("%.3f / %.3f = %.3f\n", one, two, vicheslenie);
+                    break;
+            }
+            for (;;) {
+                char prodolchit;
+                printf("Продолжить? [Y/n]: ");
+                scanf("%c", &prodolchit);
+                flush_input();
+                if (prodolchit == 'n') {
+                    goto end;
+                } else if (prodolchit == 'Y' || prodolchit == '\n' || prodolchit == 'y') {
+                    break;
+                }
+            }
+        } else {
+            printf("Зачем обманываешь?");
         }
     }
+    end:
     return 0;
 }
 

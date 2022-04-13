@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void flush_input(void);
+
 int main(void) {
     
     printf("Привет чел. Это магия. Возьми калькулятор на всякий пожарный.\n");
@@ -12,7 +14,7 @@ int main(void) {
 
     int not_an_int_is_scanned = scan_result == 2 && c == '\n';
     int mod = x % 3;
-
+    flush_input();
     if (mod != 0) {
         else {
             printf("Ты хотел меня обмануть? Неее я все прошел, я эту программу по 100 раз обновлял))) Иди ка ты куда подальше\n");
@@ -31,3 +33,9 @@ int main(void) {
     }
     return 0;
 }
+
+void flush_input(void) {
+    char c;
+    while ((c = getc(stdin)) != '\n' && c != EOF);
+}
+
