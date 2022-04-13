@@ -19,7 +19,7 @@ int main() {
         scanf("%c", &deistvie);
 
         float vicheslenie;
-        switch(deistvie) {
+        switch (deistvie) {
             case '+':
                 vicheslenie = one + two;
                 printf("%.3f + %.3f = %.3f\n", one, two, vicheslenie);
