@@ -10,5 +10,6 @@ int main() {
 
 long int count_odd_numbers(long int n) {
     n = n/2;
+    printf("%ld\n", n);
     return n;
 }
