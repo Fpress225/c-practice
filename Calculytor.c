@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void flush_input(void);
+int should_program_continue(void);
 
 int main() {
     for(;;) {
@@ -37,23 +38,30 @@ int main() {
                 printf("%.3f / %.3f = %.3f\n", one, two, vicheslenie);
                 break;
         }
-        for (;;) {
-            char prodolchit;
-            printf("Продолжить? [Y/n]: ");
-            scanf("%c", &prodolchit);
-            if (prodolchit == 'n') {
-                flush_input();
-                goto end;
-            } else if (prodolchit == 'Y' || prodolchit == '\n' || prodolchit == 'y') {
-                if (prodolchit != '\n'){
-                    flush_input();
-                }
-                break;
-            }
+        if (!should_program_continue()) {
+            goto end;
         }
     }
     end:
     return 0;
+}
+
+int should_program_continue() {
+    for (;;) {
+        char should_continue;
+        printf("Продолжить? [Y/n]: ");
+        scanf("%c", &should_continue);
+        if (should_continue != '\n') {
+            flush_input();
+        }
+        if (should_continue == 'n') {
+            return 0;
+        } else if (should_continue == '\n' || should_continue == 'Y' 
+            || should_continue == 'y') {
+            break;
+        }
+    }
+    return 1;
 }
 
 void flush_input(void) {
