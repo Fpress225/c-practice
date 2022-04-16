@@ -3,13 +3,11 @@
 long int count_odd_numbers(long int n);
 
 int main() {
-    count_odd_numbers(100);
-    count_odd_numbers(45);
+    long int r = count_odd_numbers(100);
+    printf("%ld \n", r);
     return 0;
 } 
 
 long int count_odd_numbers(long int n) {
-    n = n/2;
-    printf("%ld\n", n);
-    return n;
+    return (n / 2);
 }
